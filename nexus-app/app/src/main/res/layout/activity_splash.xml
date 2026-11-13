@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <!-- partículas de fundo -->
+    <com.nexus.panel.views.ParticleView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- logo NEXUS -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEXUS"
+            android:textSize="52sp"
+            android:textColor="@color/red_neon"
+            android:fontFamily="@font/orbitron_bold"
+            android:letterSpacing="0.3"
+            android:shadowColor="@color/red_glow"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="20" />
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:background="@color/red_dim"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FREE FIRE PANEL"
+            android:textSize="13sp"
+            android:textColor="@color/text_dim"
+            android:letterSpacing="0.25" />
+
+    </LinearLayout>
+
+    <!-- barra de loading na base -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="180dp"
+        android:layout_height="2dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="80dp"
+        android:indeterminate="true"
+        android:progressTint="@color/red_neon"
+        android:indeterminateTint="@color/red_neon" />
+
+</FrameLayout>

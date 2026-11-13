@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:background="@color/bg_dark">
+
+    <com.nexus.panel.views.ParticleView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEXUS"
+            android:textColor="@color/red_neon"
+            android:textSize="22sp"
+            android:fontFamily="@font/orbitron_bold"
+            android:letterSpacing="0.3"
+            android:shadowColor="@color/red_glow"
+            android:shadowDx="0" android:shadowDy="0" android:shadowRadius="12" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FREE FIRE PANEL v3.1"
+            android:textColor="@color/text_dim"
+            android:textSize="10sp"
+            android:letterSpacing="0.2" />
+    </LinearLayout>
+
+    <!-- linha vermelha na base do header -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/red_neon" />
+</FrameLayout>

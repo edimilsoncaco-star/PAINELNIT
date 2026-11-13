@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Se quiser Orbitron do Google Fonts via downloadable fonts -->
+<resources>
+    <string name="font_orbitron">orbitron</string>
+</resources>

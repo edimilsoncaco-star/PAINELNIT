@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <!-- partículas de fundo -->
+    <com.nexus.panel.views.ParticleView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- card de login centralizado -->
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_card"
+        android:padding="28dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEXUS"
+            android:textSize="34sp"
+            android:textColor="@color/red_neon"
+            android:fontFamily="@font/orbitron_bold"
+            android:letterSpacing="0.3"
+            android:shadowColor="@color/red_glow"
+            android:shadowDx="0" android:shadowDy="0" android:shadowRadius="16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FREE FIRE PANEL"
+            android:textSize="10sp"
+            android:textColor="@color/text_dim"
+            android:letterSpacing="0.3"
+            android:layout_marginBottom="28dp" />
+
+        <!-- username -->
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_input"
+            android:hint="USUÁRIO"
+            android:textColorHint="@color/text_dim"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:inputType="text"
+            android:singleLine="true"
+            android:layout_marginBottom="12dp" />
+
+        <!-- password -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_input"
+            android:hint="SENHA"
+            android:textColorHint="@color/text_dim"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:layout_marginBottom="20dp" />
+
+        <!-- botão entrar -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="ENTRAR"
+            android:textColor="@color/bg_dark"
+            android:textSize="13sp"
+            android:background="@drawable/bg_button_red"
+            android:letterSpacing="0.2"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tvForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Esqueci minha senha"
+            android:textColor="@color/red_dim"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+</FrameLayout>

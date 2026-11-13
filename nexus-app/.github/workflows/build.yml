@@ -1,0 +1,64 @@
+name: Nexus Panel — Build APK Debug
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:        # permite rodar na mão pela UI do GitHub
+
+jobs:
+  build:
+    name: Build APK Debug
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. checkout do código
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Java 17 (Gradle 8 precisa de JDK 17)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      # 3. permissão no gradlew
+      - name: Grant execute permission to gradlew
+        run: chmod +x ./gradlew
+
+      # 4. cache do Gradle (acelera builds subsequentes)
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # 5. build do APK debug
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug --no-daemon --stacktrace
+
+      # 6. upload do APK como artifact do workflow
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: nexus-panel-debug-${{ github.run_number }}
+          path: app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
+
+      # 7. (opcional) cria release automático quando for push em main com tag v*.*.*
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: app/build/outputs/apk/debug/app-debug.apk
+          name: Nexus Panel ${{ github.ref_name }}
+          body: "APK debug automático — build ${{ github.run_number }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
